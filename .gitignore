@@ -1,0 +1,20 @@
+# IDE stuff #
+######################
+tmp/**/*
+.idea/**/*
+.IDEA/**/*
+.idea/
+*.iws
+workspace.xml
+tasks.xml
+
+# Module stuff #
+######################
+atlassian-ide-plugin.xml
+
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
