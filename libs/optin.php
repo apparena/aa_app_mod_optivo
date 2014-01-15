@@ -25,4 +25,4 @@ $stmt->bindParam(':type', $type, PDO::PARAM_STR);
 $stmt->execute();
 
 // generate url
-$url = $aa['instance']['fb_canvas_url'] . "optin.php?i_id=" . $i_id . "&key=" . $secret;
+$url = $aa->instance->fb_canvas_url . "optin.php?i_id=" . $i_id . "&key=" . $secret;

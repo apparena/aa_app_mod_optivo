@@ -25,7 +25,11 @@ define([
                 this.callback = callback;
 
                 require(['modules/optivo/js/models/OptivoModel'], function (OptivoModel) {
-                    var optivoModel = OptivoModel().init({attributes:mailSettings});
+                    var optivoModel = OptivoModel().init({
+                        id: mailSettings.mailtype,
+                        attributes:mailSettings
+                    });
+
                     that.ajax(optivoModel.attributes, false, function (resp) {
                         that.responseHandler(resp);
                     });
@@ -42,6 +46,7 @@ define([
                             greetingcard_activated:   _.c('greetingcard_activated')
                         }
                     });
+                    OptivoModel().remove();
                 });
 
                 return true;

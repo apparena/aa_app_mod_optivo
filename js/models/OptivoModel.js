@@ -6,7 +6,7 @@ define([
     'use strict';
 
     return function () {
-        Model.namespace = 'authLogin';
+        Model.namespace = 'optivo';
 
         Model.code = Backbone.Model.extend({
             defaults: {

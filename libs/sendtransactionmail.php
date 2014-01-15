@@ -44,7 +44,7 @@ try
         {
             throw new \Exception('mail_activated is not activated in ' . __FILE__);
         }
-        $url = $aa['instance']['fb_canvas_url'] . "share.php?i_id=" . $i_id;
+        $url = $aa->instance->fb_canvas_url . "share.php?i_id=" . $i_id;
     }
 
     if ($mailtype === 'greetingcard')
