@@ -1,6 +1,6 @@
 <?php
-//http://apps.de/advent/source/modules/optivo/libs/cli/export_test.php
-//https://www.adventskalender.co/modules/optivo/libs/cli/export_test.php
+//http://apps.de/advent/source/modules/aa_app_mod_optivo/libs/cli/export_test.php
+//https://www.adventskalender.co/modules/aa_app_mod_optivo/libs/cli/export_test.php
 if (file_exists('../../../../configs/config.php'))
 {
     require_once '../../../../configs/config.php';

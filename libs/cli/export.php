@@ -1,16 +1,16 @@
 <?php
-//http://apps.de/advent/source/modules/optivo/libs/cli/export.php?debug=1
-//https://www.adventskalender.co/modules/optivo/libs/cli/export.php?debug=1
+//http://apps.de/advent/source/modules/aa_app_mod_optivo/libs/cli/export.php?debug=1
+//https://www.adventskalender.co/modules/aa_app_mod_optivo/libs/cli/export.php?debug=1
 if (file_exists('../../../../configs/config.php'))
 {
     require_once '../../../../configs/config.php';
 
-    //if (defined('ENV_MODE') && ENV_MODE === 'dev')
-    //{
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(-1);
-    //}
+    if (defined('ENV_MODE') && ENV_MODE === 'dev')
+    {
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(-1);
+    }
 }
 else
 {
@@ -27,7 +27,7 @@ try
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
     $separator    = ';';
-    $file = '../../../../tmp/export/';
+    $file         = '../../../../tmp/export/';
     $current_date = new DateTime('now', new DateTimeZone($aa_default_timezone));
     $api          = array();
     $door_id      = array();
@@ -146,11 +146,11 @@ try
             $content['var3']          = $instance['fb_canvas_url'] . "share.php?i_id=" . $i_id;
             //$content['var6']          = $config['app_base_color']['value'];
             $content['var6']  = $config['door_' . $door_id[$i_id] . '_type_' . $door_type . '_image']['src'];
-            $content['var7']          = $subject;
-            $content['var9']          = $company_name;
+            $content['var7']  = $subject;
+            $content['var9']  = $company_name;
             $content['var16'] = $config['mail_header']['src'];
             $content['var17'] = $config['door_' . $door_id[$i_id] . '_type_' . $door_type . '_desc']['value'];
-            $content['var18']         = $config['mail_footer']['value'];
+            $content['var18'] = $config['mail_footer']['value'];
 
             foreach ($content AS $key => $value)
             {
