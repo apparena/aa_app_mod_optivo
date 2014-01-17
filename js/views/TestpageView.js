@@ -3,8 +3,8 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'modules/notification/js/views/NotificationView',
-    'modules/optivo/js/views/OptivoView',
+    'modules/aa_app_mod_notification/js/views/NotificationView',
+    'modules/aa_app_mod_optivo/js/views/OptivoView',
     'text!modulesSrc/optivo/templates/testpage.html'
 ], function (View, $, _, Backbone, NotificationView, OptivoView, TestpageTemplate) {
     'use strict';

@@ -24,7 +24,7 @@ define([
                 }
                 this.callback = callback;
 
-                require(['modules/optivo/js/models/OptivoModel'], function (OptivoModel) {
+                require(['modules/aa_app_mod_optivo/js/models/OptivoModel'], function (OptivoModel) {
                     var optivoModel = OptivoModel().init({
                         id: mailSettings.mailtype,
                         attributes:mailSettings
@@ -54,7 +54,7 @@ define([
 
             responseHandler: function (res) {
                 var that = this;
-                require(['modules/notification/js/views/NotificationView'], function (NotificationView) {
+                require(['modules/aa_app_mod_notification/js/views/NotificationView'], function (NotificationView) {
                     if (_.aa.env.mode === 'dev') {
                         NotificationView().init().setOptions({
                             title:       'DEV MESSAGE: Mailsending',
