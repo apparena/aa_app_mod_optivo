@@ -1,4 +1,7 @@
 {
-    "name": "aa_app_mod_optivo",
-    "version": "1.0.0"
+    "name":         "aa_app_mod_optivo",
+    "version":      "1.0.0",
+    "dependencies": {
+        "aa_app_mod_notification": "latest"
+    }
 }
