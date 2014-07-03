@@ -1,4 +1,6 @@
 <?php
+use \Apparena\App;
+
 defined('_VALID_CALL') or die('Direct Access is not allowed.');
 // Transaction mail configuration
 define('ADDITIONAL_KEY_AMOUNT', 20);
@@ -11,8 +13,8 @@ function api_encode($value)
     return urlencode(utf8_decode($value));
 }
 
-$url = $aa->instance->fb_canvas_url . "?i_id=" . $i_id;
-
+$instance   = \Apparena\Api\Instance::init();
+$url        = $url = $instance->data->fb_canvas_url . \Apparena\App::$i_id . '/' . \Apparena\App::$locale . '/';
 $api_url    = 'https://api.broadmail.de/http/form/' . OPTIVO_AUTH . '/sendtransactionmail';
 $api_params = array();
 $skip       = false;
@@ -44,7 +46,7 @@ try
         {
             throw new \Exception('mail_activated is not activated in ' . __FILE__);
         }
-        $url = $aa->instance->fb_canvas_url . "share.php?i_id=" . $i_id;
+        $url = $instance->data->share_url;
     }
 
     if ($mailtype === 'greetingcard')
@@ -65,7 +67,7 @@ try
         {
             throw new \Exception('reminder optin is diabled in ' . __FILE__);
         }
-        if ($mailtype === 'nl_optin' && __c('mod_newsletter_activated') !== '1')
+        if ($mailtype === 'nl_optin' && __c('mod_newsletter_activated') === '0')
         {
             throw new \Exception('mod_newsletter_activated is not activated in ' . __FILE__);
         }
@@ -82,12 +84,12 @@ try
     // set default values
     $api_params['bmRecipientId'] = $recipient;
     $api_params['bmMailingId']   = $mail_id;
-    $api_params['var2'] = __c('wizard_company_name') . ' ' . __t('advent_calendar'); // company name
+    $api_params['var2']          = __c('wizard_company_name') . ' ' . __t('advent_calendar'); // company name
     $api_params['var3']          = $url; // url
     $api_params['var6']          = __c('app_base_color'); // app base color
     $api_params['var7']          = __c('mail_template_subject_' . $mailtype); // subject
     $api_params['var9']          = __c('wizard_company_name'); // company name again as sender
-    $api_params['var16']         = __c('mail_header'); // header image
+    $api_params['var16']         = __c('mail_header', 'src'); // header image
     $api_params['var17']         = __c('mail_template_content_' . $mailtype); // content
     $api_params['var18']         = __c('mail_footer'); // footer
 
@@ -131,7 +133,7 @@ try
         }
     }
 }
-catch (Exception $e)
+catch (\Exception $e)
 {
     // prepare return data
     $return['code']      = $e->getCode();
@@ -140,7 +142,7 @@ catch (Exception $e)
     $return['trace']     = $e->getTrace();
     $return['mail_type'] = $mailtype;
 }
-catch (PDOException $e)
+catch (\PDOException $e)
 {
     // prepare return data for database errors
     $return['code']    = $e->getCode();

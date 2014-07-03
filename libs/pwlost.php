@@ -31,7 +31,7 @@ if ($stmt->rowCount() > 0)
 
     if ($mailtype === 'pwlost')
     {
-        $url .= '#page/auth/password/' . $secret;
+        $url .= '#mod/auth/password/' . $secret;
         // ok recipient exists, create DB entry and send mail
         $sql = "INSERT INTO
                         " . TBL_AUTH_PWLOST . "

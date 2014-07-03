@@ -39,15 +39,15 @@ define([
                         pwlost:        'success'
                     };
 
-                if (_.c('mail_activated') === '1') {
+                if (_.c('mail_activated') === '1' || _.c('mail_activated') === 'y') {
                     data.welcome = 'success';
                 }
 
-                if (_.c('reminder_activated') === '1') {
+                if (_.c('reminder_activated') === '1' || _.c('reminder_activated') === 'y') {
                     data.optinreminder = 'success';
                 }
 
-                if (_.c('mod_newsletter_activated') === '1') {
+                if (_.c('mod_newsletter_activated') === '1' || _.c('mod_newsletter_activated') === 'y') {
                     data.optinnl = 'success';
                 }
 
