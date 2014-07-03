@@ -84,7 +84,7 @@ try
     // set default values
     $api_params['bmRecipientId'] = $recipient;
     $api_params['bmMailingId']   = $mail_id;
-    $api_params['var2']          = __c('wizard_company_name') . ' ' . __t('advent_calendar'); // company name
+    $api_params['var2']          = __c('wizard_company_name'); // company name
     $api_params['var3']          = $url; // url
     $api_params['var6']          = __c('app_base_color'); // app base color
     $api_params['var7']          = __c('mail_template_subject_' . $mailtype); // subject
