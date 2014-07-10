@@ -1,8 +1,6 @@
 # App-Arena.com App Module Optivo
-
-## Information
-* **Github:** [Repository](https://github.com/apparena/aa_app_mod_optivo)
-* **Docs:**   [Appalizr.com](http://www.appalizr.com/docs.html)
+* **Github:** https://github.com/apparena/aa_app_mod_optivo
+* **Docs:**   http://www.appalizr.com/index.php/optivo.html
 * This is a module of the [aa_app_template](https://github.com/apparena/aa_app_template)
 
 ## Module job
