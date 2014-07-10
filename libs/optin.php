@@ -25,4 +25,5 @@ $stmt->bindParam(':type', $type, PDO::PARAM_STR);
 $stmt->execute();
 
 // generate url
-$url = $aa->instance->fb_canvas_url . "optin.php?i_id=" . $i_id . "&key=" . $secret;
+$instance = \Apparena\Api\Instance::init();
+$url      = $instance->data->fb_canvas_url . \Apparena\App::$i_id . '/' . \Apparena\App::$locale . '/optin/' . $secret . '/';

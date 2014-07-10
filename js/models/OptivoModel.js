@@ -11,7 +11,7 @@ define([
         Model.code = Backbone.Model.extend({
             defaults: {
                 action: 'sendtransactionmail',
-                module: 'optivo'
+                module: 'aa_app_mod_optivo'
             }
         });
 
